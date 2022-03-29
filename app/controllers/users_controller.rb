@@ -25,7 +25,14 @@ class UsersController < ApplicationController
             name: params[:name],
             accountBalance: params[:accountBalance]
         )
-
         render json: @user
+    end
+
+    def destroy
+        @users = User.all
+        @user = User.find(params[:id])
+        @user.destroy
+        
+        render json: @users
     end
 end
