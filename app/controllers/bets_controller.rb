@@ -19,4 +19,16 @@ class BetsController < ApplicationController
         )
         render json: @bet
     end
+
+    def update
+        @bet = Bet.find(params[:id])
+        @bet.update(
+            user_id: params[:user_id],
+            betId: params[:betId],
+            gameId: params[:gameId],
+            chosenTeam: params[:chosenTeam],
+            wager: params[:wager]
+        )
+        render json: @bet
+    end
 end

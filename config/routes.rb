@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :bets, only: [:index, :show, :create]
+  resources :bets, only: [:index, :show, :create, :update]
   resources :users, only: [:index, :show, :create, :update, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
