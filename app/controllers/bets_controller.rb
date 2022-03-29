@@ -31,4 +31,12 @@ class BetsController < ApplicationController
         )
         render json: @bet
     end
+
+    def destroy 
+        @bets = Bet.all
+        @bet = Bet.find(params[:id])
+        @bet.destroy
+
+        render json: @bet
+    end
 end
