@@ -17,4 +17,15 @@ class UsersController < ApplicationController
         )
         render json: @user
     end
+
+    def update
+        @user = User.find(params[:id])
+        @user.update(
+            userId: params[:userId],
+            name: params[:name],
+            accountBalance: params[:accountBalance]
+        )
+
+        render json: @user
+    end
 end
