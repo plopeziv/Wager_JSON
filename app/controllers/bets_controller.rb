@@ -5,7 +5,7 @@ class BetsController < ApplicationController
     end
 
     def show
-        @bet = Bet.find(params[:id])
+        @bet = Bet.find_by(betId: params[:id])
         render json: @bet
     end
 
@@ -21,7 +21,7 @@ class BetsController < ApplicationController
     end
 
     def update
-        @bet = Bet.find(params[:id])
+        @bet = Bet.find_by(betId: params[:id])
         @bet.update(
             user_id: params[:user_id],
             betId: params[:betId],
@@ -34,7 +34,7 @@ class BetsController < ApplicationController
 
     def destroy 
         @bets = Bet.all
-        @bet = Bet.find(params[:id])
+        @bet = Bet.find_by(betId: params[:id])
         @bet.destroy
 
         render json: @bet
