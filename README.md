@@ -1,24 +1,36 @@
-# README
+# Rails Backend Wagering API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application creates a backend API for frontend consumption. The purpose of this project is to teach Rails principals in creating and serving an API. This app will simulate an API serving multiple users, games, and bets that can be created, fetched, or mutated. 
 
-Things you may want to cover:
+## Running the Program
+To run the rails appllication run the following command in the wager_api directory. 
 
-* Ruby version
+```ruby
+bin/rails server
+```
 
-* System dependencies
+The rails application will be running on localhost:3000 by default. If you wish to run this application on another port, run the following.
 
-* Configuration
+```ruby
+bin/rails server -p [port number]
+```
 
-* Database creation
+To exit the program, type in control + c in your terminal. 
 
-* Database initialization
+## Testing
+While inside the wager_api directory, run the command below.
 
-* How to run the test suite
+```ruby
+bin/rails test
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Note: To run the test continously ```mix test.watch``` is also available. This will refresh the test suite after changes to a file are saved.
 
-* Deployment instructions
+## Models 
+The model portion of the API consist of three tables. These are Users, Games, and Bets respectively. Each user, game, or bet, have a unique ID and referenced by the ID respectively. The schema of the tables and their respective fields are represented below.
 
-* ...
+![](model_schema.png)
+
+## Contributors
+
+The initial wager_api program was created by Pedro Lopez under the guidance and oversight of Dave Torre, Matt Readout, Joey Shipley, & Tiffani Elmore. 
