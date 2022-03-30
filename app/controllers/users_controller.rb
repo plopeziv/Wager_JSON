@@ -10,21 +10,13 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.create(
-            userId: params[:userId],
-            name: params[:name],
-            accountBalance: params[:accountBalance]
-        )
+        @user = User.create(user_params)
         render json: @user
     end
 
     def update
         @user = User.find_by(userId: params[:id])
-        @user.update(
-            userId: params[:userId],
-            name: params[:name],
-            accountBalance: params[:accountBalance]
-        )
+        @user.update(user_params)
         render json: @user
     end
 
@@ -34,5 +26,15 @@ class UsersController < ApplicationController
         @user.destroy
         
         render json: @users
+    end
+
+
+    private 
+    def user_params
+        params.require(:user).permit(
+            userId: params[:userId],
+            name: params[:name],
+            accountBalance: params[:accountBalance]
+        )
     end
 end

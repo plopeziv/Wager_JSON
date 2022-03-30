@@ -10,25 +10,13 @@ class BetsController < ApplicationController
     end
 
     def create
-        @bet = Bet.create(
-            user_id: params[:user_id],
-            betId: params[:betId],
-            gameId: params[:gameId],
-            chosenTeam: params[:chosenTeam],
-            wager: params[:wager]
-        )
+        @bet = Bet.create(bet_params)
         render json: @bet
     end
 
     def update
         @bet = Bet.find_by(betId: params[:id])
-        @bet.update(
-            user_id: params[:user_id],
-            betId: params[:betId],
-            gameId: params[:gameId],
-            chosenTeam: params[:chosenTeam],
-            wager: params[:wager]
-        )
+        @bet.update(bet_params)
         render json: @bet
     end
 
@@ -38,5 +26,16 @@ class BetsController < ApplicationController
         @bet.destroy
 
         render json: @bet
+    end
+
+    private 
+    def bet_params
+        params.require(:bet).permit(
+            userId: params[:userId],
+            betId: params[:betId],
+            gameId: params[:gameId],
+            chosenTeam: params[:chosenTeam],
+            wager: params[:wager]
+        )
     end
 end
