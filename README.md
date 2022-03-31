@@ -2,11 +2,19 @@
 
 This application creates a backend API for frontend consumption. The purpose of this project is to teach Rails principals in creating and serving an API. This app will simulate an API serving multiple users, games, and bets that can be created, fetched, or mutated. 
 
+## Installation
+The project Gemfile.lock and Gemfile should have all the information needed to install this program. To install simply run the following command in the parent directory. 
+
+```ruby
+bin/rails server
+```
+
 ## Running the Program
 To run the rails appllication run the following command in the wager_api directory. 
 
 ```ruby
-bin/rails server
+bundle install
+rails g rspec:install
 ```
 
 The rails application will be running on localhost:3000 by default. If you wish to run this application on another port, run the following.
